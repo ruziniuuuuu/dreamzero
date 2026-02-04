@@ -108,11 +108,12 @@ The server saves:
 If you use DreamZero in your research, please cite:
 
 ```bibtex
-@article{dreamzero2025,
+@misc{dreamzero2025,
   title={DreamZero: World Action Models Are Zero-Shot Policies},
-  author={GROOT-Dreams Team},
-  journal={arXiv preprint},
-  year={2025}
+  author={NVIDIA GEAR},
+  howpublished={\url{https://dreamzero0.github.io/}},
+  year={2026},
+  note={Project Website}
 }
 ```
 
