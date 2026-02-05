@@ -112,12 +112,6 @@ python test_client_AR.py --port 5000
 - `--index`: Index for output directory naming (default: 0)
 
 
-### Performance
-
-- **Inference Time** (server-side, 2x GB200): ~1.5 seconds per action prediction
-- **Distributed Setup**: Rank 0 handles WebSocket communication, all ranks participate in model inference
-
-
 ### Output
 
 The server saves:
