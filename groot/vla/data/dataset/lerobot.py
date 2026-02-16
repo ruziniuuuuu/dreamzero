@@ -1692,16 +1692,11 @@ class LeRobotSingleDataset(Dataset):
             original_key = key
         if pd.api.types.is_numeric_dtype(self.curr_traj_data[original_key]):
             # Stored as list of integers
-            task_indices: list[int] = []
-            for i in range(len(step_indices)):
-                task_indices.append(self.curr_traj_data[original_key][step_indices[i]].item())
+            task_indices: list[int] = self.curr_traj_data[original_key].iloc[step_indices].tolist()
             return self.tasks.loc[task_indices]["task"].tolist()
         else:
             # Stored as list of strings
-            return [
-                str(self.curr_traj_data[original_key][step_indices[i]])
-                for i in range(len(step_indices))
-            ]
+            return self.curr_traj_data[original_key].iloc[step_indices].astype(str).tolist()
 
     def _get_language_from_metadata(
         self,

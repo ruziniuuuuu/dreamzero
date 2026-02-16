@@ -81,6 +81,8 @@ dependencies = [
     "huggingface_hub",
     "decord2",
     "deepspeed",
+    "tiktoken",
+    "sentencepiece"
 ]
 
 [project.optional-dependencies]

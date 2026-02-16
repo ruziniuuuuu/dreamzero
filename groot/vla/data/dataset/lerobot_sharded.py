@@ -229,6 +229,10 @@ class ShardedLeRobotSingleDataset(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df, frame_indices_map
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -467,6 +471,10 @@ class ShardedLeRobotSingleUniformDataset(LeRobotSingleUniformDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -715,6 +723,10 @@ class ShardedLeRobotSubLangSingleUniformDataset(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -1063,6 +1075,10 @@ class ShardedLeRobotGlobalLangSingleUniformDataset(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -1577,6 +1593,10 @@ class ShardedLeRobotSubLangSingleUniformDatasetV2(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -1913,6 +1933,10 @@ class ShardedLeRobotSubLangSingleUniformDatasetCotrain(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -2389,6 +2413,10 @@ class ShardedLeRobotSubLangSingleChunkDataset(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -2744,6 +2772,10 @@ class ShardedLeRobotSubLangSingleActionChunkDataset(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -3522,6 +3554,10 @@ class ShardedLeRobotSubLangSingleActionChunkDatasetV2(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -4472,6 +4508,10 @@ class ShardedLeRobotGlobalLangSingleActionChunkDataset(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
@@ -5358,6 +5398,10 @@ class ShardedLeRobotSubLangSingleActionChunkDatasetDROID(LeRobotSingleDataset):
         end_time = time.time()
         print(f"Cached shard in {end_time - start_time:.2f} seconds")
         assert cached_df is not None, "Cached dataframe is None"
+        # Add global "index" column if missing (some dataset formats omit it)
+        if "index" not in cached_df.columns:
+            cached_df = cached_df.reset_index(drop=True)
+            cached_df["index"] = cached_df.index
         return cached_frames, trajectory_start_indices, cached_df
 
     def start_cache_shard(self, shard_index: int) -> None:
